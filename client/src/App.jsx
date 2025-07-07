@@ -12,7 +12,7 @@ export default function App() {
   const [file, setFile] = useState(null);
   const [uploading, setUploading] = useState(false);
   const [fileNames, setFileNames] = useState([]);
-  const [selectedFile, setSelectedFile] = useState([]);
+  const [selectedFile, setSelectedFile] = useState("");
   const [uploadFileName, setUploadFileName] = useState("");
   const [message, setMessage] = useState([]);
 
@@ -75,7 +75,6 @@ export default function App() {
 
     const formData = new FormData();
     formData.append("file", file);
-    formData.append('fileName', uploadFileName.replace(/ /g, "_"));
 
     try {
       const uploadRes = await axios.post(`${BASE_URL}/upload`, formData);
@@ -339,29 +338,32 @@ export default function App() {
                 }
               }}
             ></textarea>
-            <div className="input-group-append d-flex align-items-center">
-              <input
-                type="number"
-                className="form-control"
-                style={{ maxWidth: "70px" }}
-                min="1"
-                max="20"
-                value={k}
-                onChange={(e) => setK(Number(e.target.value))}
-              />
-              <div className="form-check ms-2">
+            {selectedFile && (
+              <div className="input-group-append d-flex align-items-center">
                 <input
-                  className="form-check-input"
-                  type="checkbox"
-                  checked={rag}
-                  onChange={(e) => setRag(e.target.checked)}
-                  id="ragCheckbox"
+                  type="number"
+                  className="form-control"
+                  style={{ maxWidth: "70px" }}
+                  min="1"
+                  max="20"
+                  value={k}
+                  onChange={(e) => setK(Number(e.target.value))}
                 />
-                <label className="form-check-label" htmlFor="ragCheckbox">
-                  RAG
-                </label>
+                <div className="form-check ms-2">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    checked={rag}
+                    onChange={(e) => setRag(e.target.checked)}
+                    id="ragCheckbox"
+                    disabled={!selectedFile}
+                  />
+                  <label className="form-check-label" htmlFor="ragCheckbox">
+                    RAG
+                  </label>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>

@@ -6,6 +6,7 @@ import uuid
 from sentence_transformers import SentenceTransformer
 import faiss
 import cohere
+from google import genai
 from pydantic import BaseModel
 from dotenv import load_dotenv
 import os
@@ -25,6 +26,8 @@ class AskRequest(BaseModel):
 app = FastAPI()
 
 co = cohere.ClientV2(os.getenv('COHERE_API_KEY'))
+client = genai.Client(api_key=os.getenv('GOOGLE_API_KEY'))
+
 
 # Enable CORS for local development
 app.add_middleware(
@@ -184,13 +187,22 @@ def ask_question(req: AskRequest):
     else:
         prompt = question
 
-    response = co.chat(
-        model="command-a-03-2025",
-        temperature=0.5,
-        messages=[{"role": "user", "content": prompt}],
-    )
+    try:
+        response = client.models.generate_content(
+            model="gemini-2.5-pro",
+            contents=prompt,
+        )
+    except Exception as e:
+        # Check for token limit error (Google Gemini returns a specific error message/code)
+        if "token" in str(e).lower() or "limit" in str(e).lower():
+            response = client.models.generate_content(
+                model="gemini-2.5-flash",
+                contents=prompt,
+            )
+        else:
+            raise
 
-    answer_text = response.message.content[0].text if response and response.message else ""
+    answer_text = response.text if response else ""
 
     # Append results to result.txt
     with write_lock:
