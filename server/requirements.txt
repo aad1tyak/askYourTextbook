@@ -5,4 +5,5 @@ cohere
 sentence-transformers
 faiss-cpu
 python-multipart
+google
 
