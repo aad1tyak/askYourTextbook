@@ -1,0 +1,9 @@
+/server/uploads
+/server/result.txt
+/server/pdf_chunks.txt
+/server/vector.index
+/server/.env
+/server/venv/
+/server/__pycache__/
+/client/node_modules/
+

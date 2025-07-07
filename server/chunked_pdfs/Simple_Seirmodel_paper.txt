@@ -1,0 +1,522 @@
+557
+this month
+Points of Significance
+The SEIRS model for infectious disease dynamics
+Realistic models of epidemics account for latency, loss of immunity, births and deaths.
+Ottar N. Bjørnstad, Katriona Shea, Martin Krzywinski and Naomi Altman
+T
+he simple but fundamental SIR 
+framework introduced in the previous 
+column1 has been used to generate ==============================
+T
+he simple but fundamental SIR 
+framework introduced in the previous 
+column1 has been used to generate 
+important insights about the evolution of 
+a new epidemic in an idealized susceptible 
+population with random mixing. Now 
+we turn to how more complex disease 
+transmission scenarios can be added to the 
+model by introducing new compartments ==============================
+population with random mixing. Now 
+we turn to how more complex disease 
+transmission scenarios can be added to the 
+model by introducing new compartments 
+(groups) and more complicated flows 
+between them. These will allow us to model 
+important aspects such as birth, death, loss 
+of immunity and age.
+The basic SIR model1 has three groups: 
+susceptible (S), infectious (I) and recovered ==============================
+important aspects such as birth, death, loss 
+of immunity and age.
+The basic SIR model1 has three groups: 
+susceptible (S), infectious (I) and recovered 
+(R), with a total population size N = S + 
+I + R. It is parametrized by the infectious 
+period 1/γ, the basic reproduction number 
+R0 (the number of secondary cases for 
+each infection in a completely susceptible 
+population) and the contact rate β = γR0.==============================
+period 1/γ, the basic reproduction number 
+R0 (the number of secondary cases for 
+each infection in a completely susceptible 
+population) and the contact rate β = γR0.
+For most infectious diseases, however, 
+there is a latent period between being 
+infected and becoming infectious: the 
+exposed group (E). Upon being infected, 
+individuals will move to this group at a 
+rate βSI/N and remain there for an average ==============================
+infected and becoming infectious: the 
+exposed group (E). Upon being infected, 
+individuals will move to this group at a 
+rate βSI/N and remain there for an average 
+period of 1/σ before moving into the I group. 
+For many respiratory infections, immunity 
+after recovery is temporary and recovered 
+individuals will lose immunity and return to 
+S after an average protected period of 1/ω.
+Demography contributes to flows in and ==============================
+after recovery is temporary and recovered 
+individuals will lose immunity and return to 
+S after an average protected period of 1/ω.
+Demography contributes to flows in and 
+out of groups. Death due to infection will 
+cause a loss of individuals from the I group 
+at a rate α, and all groups will experience 
+background death from other causes at 
+a rate µ. In otherwise stable populations, 
+background deaths are balanced by births ==============================
+at a rate α, and all groups will experience 
+background death from other causes at 
+a rate µ. In otherwise stable populations, 
+background deaths are balanced by births 
+into S at a rate µN.
+Loss of immunity, births and deaths 
+contribute to susceptible recruitment into S, 
+which creates an ‘open epidemic’. Ignoring 
+vaccination1, these extensions (Fig. 1a) lead 
+to the SEIRS model:==============================
+contribute to susceptible recruitment into S, 
+which creates an ‘open epidemic’. Ignoring 
+vaccination1, these extensions (Fig. 1a) lead 
+to the SEIRS model:
+dS
+dt ¼ μN
+|{z}
+birth
+
+ βIS=N==============================
+|{z}
+birth
+
+ βIS=N
+|ﬄﬄ{zﬄﬄ}
+infection
+þ
+ωR
+|{z}
+lost immunity==============================
+þ
+ωR
+|{z}
+lost immunity
+
+ μS
+|{z}
+death
+dE
+dt ¼ βIS=N==============================
+|{z}
+death
+dE
+dt ¼ βIS=N
+|ﬄﬄ{zﬄﬄ}
+infection
+
+ σE
+|{z}
+latency==============================
+
+ σE
+|{z}
+latency
+
+ μE
+|{z}
+death
+dI
+dt ¼ σE==============================
+|{z}
+death
+dI
+dt ¼ σE
+|{z}
+latency
+
+
+γI
+|{z}==============================
+
+
+γI
+|{z}
+recovery
+
+ μ þ α
+ð
+ÞI
+|ﬄﬄﬄﬄ{zﬄﬄﬄﬄ}==============================
+ μ þ α
+ð
+ÞI
+|ﬄﬄﬄﬄ{zﬄﬄﬄﬄ}
+death
+dR
+dt ¼
+γI
+|{z}
+recovery==============================
+dt ¼
+γI
+|{z}
+recovery
+
+
+ωR
+|{z}
+lost immunity
+==============================
+ωR
+|{z}
+lost immunity
+
+ μR
+|{z}
+death
+The associated basic reproduction number is 
+R0 ¼ σ= σ þ μ
+ð==============================
+death
+The associated basic reproduction number is 
+R0 ¼ σ= σ þ μ
+ð
+Þ
+½
+´ β= γ þ μ þ α
+ð
+Þ
+½==============================
+´ β= γ þ μ þ α
+ð
+Þ
+½
+
+I
+ because 
+the infectious period is 1/(γ þ μ þ α
+I
+) and ==============================
+ because 
+the infectious period is 1/(γ þ μ þ α
+I
+) and 
+the probability of the index case becoming 
+infectious rather than dying while in E is 
+σ/(σ + µ). For most acute infections, µ is 
+much smaller than the epidemic rates so 
+realistic values do not appreciably alter the 
+trajectories (Fig. 2).==============================
+σ/(σ + µ). For most acute infections, µ is 
+much smaller than the epidemic rates so 
+realistic values do not appreciably alter the 
+trajectories (Fig. 2).
+The trajectory of I lags that of E by the 
+latency period, and (when R0 > 1) both E 
+and I are predicted to eventually stabilize 
+at an ‘endemic equilibrium’ that depends 
+on all rates in the system2 (Fig. 1b). For our 
+scenario, this occurs after about 4 years, ==============================
+and I are predicted to eventually stabilize 
+at an ‘endemic equilibrium’ that depends 
+on all rates in the system2 (Fig. 1b). For our 
+scenario, this occurs after about 4 years, 
+when the pathogen will circulate in the 
+population with E = 1.2% and I = 2.4%, 
+while S = 1/R0 = 33% (Fig. 1b).
+In the presence of continuous susceptible 
+recruitment, the path toward the endemic 
+equilibrium will always occur in epidemic ==============================
+while S = 1/R0 = 33% (Fig. 1b).
+In the presence of continuous susceptible 
+recruitment, the path toward the endemic 
+equilibrium will always occur in epidemic 
+waves (Fig. 2). The inter-epidemic interval 
+TE is the wave period and is determined 
+by rate parameters, host demography and 
+pathogen characteristics2. These waves 
+should not be confused with any seasonal 
+cycles after the endemic equilibrium — the ==============================
+by rate parameters, host demography and 
+pathogen characteristics2. These waves 
+should not be confused with any seasonal 
+cycles after the endemic equilibrium — the 
+latter result from seasonal variation  
+in β (ref. 2).
+Increasing the latency period from  
+1/σ = 7 to 14 days increases the 
+inter-epidemic interval from about  
+TE = 1.09 to 1.29 years, but the waves ==============================
+Increasing the latency period from  
+1/σ = 7 to 14 days increases the 
+inter-epidemic interval from about  
+TE = 1.09 to 1.29 years, but the waves 
+attenuate at roughly the same rate and  
+reach approximately the same equilibrium 
+of I(∞) = 2.4% (Fig. 2a). If the period of 
+immunity is doubled to 1/ω = 2 years,  
+the endemic equilibrium is halved to  
+I(∞) = 1.2%, the inter-epidemic period ==============================
+of I(∞) = 2.4% (Fig. 2a). If the period of 
+immunity is doubled to 1/ω = 2 years,  
+the endemic equilibrium is halved to  
+I(∞) = 1.2%, the inter-epidemic period 
+is increased to TE = 1.51 years, and the 
+time to settle on the equilibrium increases 
+substantially because the mean SEIRS loop 
+duration is longer (Fig. 2c).
+A useful way to understand epidemic 
+waves is with ‘phase plane’ plots that  ==============================
+substantially because the mean SEIRS loop 
+duration is longer (Fig. 2c).
+A useful way to understand epidemic 
+waves is with ‘phase plane’ plots that  
+show the trajectory of I as a function of 
+S (Fig. 2b,c). In this view, the waves trace 
+out a spiral over time that converges to the 
+endemic equilibrium, and this rate can be 
+seen from the position of specific times on 
+the spiral from the start of the first epidemic ==============================
+out a spiral over time that converges to the 
+endemic equilibrium, and this rate can be 
+seen from the position of specific times on 
+the spiral from the start of the first epidemic 
+(for example, at the one-year mark, black 
+points in Fig. 2b,c). For 1/σ = 7 days and 
+1/ω = 1 year, the one-year mark on the 
+trajectory (Fig. 2b, light orange) is just after 
+the first trough in the wave. If we increase 
+the latency period from 1/σ = 7 to 14 days, ==============================
+1/ω = 1 year, the one-year mark on the 
+trajectory (Fig. 2b, light orange) is just after 
+the first trough in the wave. If we increase 
+the latency period from 1/σ = 7 to 14 days, 
+this point is closer to the trough (Fig. 2b, 
+medium orange). The spiral is now traced 
+out more slowly, reflecting the increase in 
+the inter-epidemic interval TE = 1.09 to  
+Fig. 1 | The SEIRS model extends the SIR model and exhibits periodicity when R0 > 1 and there  
+is recruitment into S. a, The SEIRS model with demography. Rates are β (contact), σ (latency),  ==============================
+out more slowly, reflecting the increase in 
+the inter-epidemic interval TE = 1.09 to  
+Fig. 1 | The SEIRS model extends the SIR model and exhibits periodicity when R0 > 1 and there  
+is recruitment into S. a, The SEIRS model with demography. Rates are β (contact), σ (latency),  
+γ (recovery), ω (loss of immunity), α (infection-induced death) and µ (birth and background death).  
+b, The SEIRS trajectory of S (black), E (green), I (orange) and R (blue) and their endemic equilibrium 
+values for R0 = 3, 1/γ = 14 days, 1/σ = 7 days, 1/ω = 1 year, 1/µ = 76 years, α = 0 and β = 0.21/day.  
+A closer view of the I and E trajectories is shown with log y axis. Calculations over 1,000 time steps  
+with S(0) = 0.999 and E(0) = 0.001, I(0) = R(0) = 0.
+Nature Methods | VOL 17 | June 2020 | 557–558 | www.nature.com/naturemethods==============================
+values for R0 = 3, 1/γ = 14 days, 1/σ = 7 days, 1/ω = 1 year, 1/µ = 76 years, α = 0 and β = 0.21/day.  
+A closer view of the I and E trajectories is shown with log y axis. Calculations over 1,000 time steps  
+with S(0) = 0.999 and E(0) = 0.001, I(0) = R(0) = 0.
+Nature Methods | VOL 17 | June 2020 | 557–558 | www.nature.com/naturemethods
+558
+this month
+1.29 years, which in the phase plane is the 
+time it takes for the spiral to complete  
+a 360° loop (Fig. 2b, inset).
+Doubling the duration of immunity from ==============================
+1.29 years, which in the phase plane is the 
+time it takes for the spiral to complete  
+a 360° loop (Fig. 2b, inset).
+Doubling the duration of immunity from 
+1/ω = 1 to 2 years leads to greater changes 
+to the phase plane (Fig. 2c). Now the spiral 
+center is shifted because the endemic 
+equilibrium is halved to I(∞) = 1.2% and 
+the spiral itself is stretched because of the 
+greater fluctuation in I (and to a lesser extent ==============================
+center is shifted because the endemic 
+equilibrium is halved to I(∞) = 1.2% and 
+the spiral itself is stretched because of the 
+greater fluctuation in I (and to a lesser extent 
+in S). The one-year mark is ahead of the first 
+trough, reflecting a longer TE = 1.51 years.
+The spiral paths of the open epidemic 
+contrast to that of a ‘closed epidemic’ SIR 
+model1 with the same R0 and 1/γ (Fig. 2, 
+gray trace). The phase-plane SIR trajectory ==============================
+The spiral paths of the open epidemic 
+contrast to that of a ‘closed epidemic’ SIR 
+model1 with the same R0 and 1/γ (Fig. 2, 
+gray trace). The phase-plane SIR trajectory 
+converges well before the one-year mark to 
+I(∞) = 0 and a significantly smaller  
+S(∞) of 5.9%. In the case of an open 
+epidemic, S(∞) = 1/R0 is larger because  
+of susceptible recruitment due to births and 
+loss of immunity.==============================
+S(∞) of 5.9%. In the case of an open 
+epidemic, S(∞) = 1/R0 is larger because  
+of susceptible recruitment due to births and 
+loss of immunity.
+Neither the E nor I groups distinguish 
+whether an individual has symptoms — 
+only whether they are pre-infectious (E) or 
+infectious (I). Typically, E will contain both 
+asymptomatic and weakly symptomatic 
+individuals who are not yet infectious, while ==============================
+only whether they are pre-infectious (E) or 
+infectious (I). Typically, E will contain both 
+asymptomatic and weakly symptomatic 
+individuals who are not yet infectious, while 
+the I group will mainly contain those who 
+are symptomatic as well as any who are 
+asymptomatic but nevertheless infectious. 
+The R group may contain non-infectious 
+symptomatic people, such as in the case 
+of influenza, where symptoms commonly ==============================
+asymptomatic but nevertheless infectious. 
+The R group may contain non-infectious 
+symptomatic people, such as in the case 
+of influenza, where symptoms commonly 
+persist for several days after the virus has 
+been cleared by the immune system.
+Figure 3 illustrates how the SIR model 
+can be extended to account for symptoms, 
+multiple routes of transmission and age. For 
+example, while symptoms and infectiousness ==============================
+Figure 3 illustrates how the SIR model 
+can be extended to account for symptoms, 
+multiple routes of transmission and age. For 
+example, while symptoms and infectiousness 
+often progress in parallel, they are not 
+one and the same (Fig. 3a). Recall that the 
+average rate at which an infected individual 
+can infect a susceptible one (β) is a product 
+of the number of contacts (k) and the 
+probability of infection on contact (π)1. ==============================
+average rate at which an infected individual 
+can infect a susceptible one (β) is a product 
+of the number of contacts (k) and the 
+probability of infection on contact (π)1. 
+The severity of symptoms can affect β in 
+various ways: a heavy cough that expels 
+more infectious particles will increase π, 
+whereas a debilitating illness that reduces 
+contact will decrease k. This is relevant to 
+the ongoing SARS-CoV-2 pandemic, in ==============================
+more infectious particles will increase π, 
+whereas a debilitating illness that reduces 
+contact will decrease k. This is relevant to 
+the ongoing SARS-CoV-2 pandemic, in 
+which the relationship between symptoms 
+and infectiousness is not fully known.  
+Such scenarios require that the I group  
+be split into (for example) two or three  
+with different groupings with repect  
+to k and π (Fig. 3a).==============================
+Such scenarios require that the I group  
+be split into (for example) two or three  
+with different groupings with repect  
+to k and π (Fig. 3a).
+Susceptible and infectious context may 
+also be important. In the West African  
+Ebola outbreak of 2013–2014, transmission 
+in the community happened at a different 
+rate than in hospitals3, with k and π 
+both elevated for health care workers. ==============================
+Ebola outbreak of 2013–2014, transmission 
+in the community happened at a different 
+rate than in hospitals3, with k and π 
+both elevated for health care workers. 
+Additionally, for hemorrhagic viruses 
+like Ebola the possibility of post-mortem 
+exposure during funeral preparations  
+(group F) was an added risk factor (Fig. 3b). 
+Age is also a critical determinant of severity 
+for many infections, including SARS-CoV-2, ==============================
+exposure during funeral preparations  
+(group F) was an added risk factor (Fig. 3b). 
+Age is also a critical determinant of severity 
+for many infections, including SARS-CoV-2, 
+and the basic compartmental framework 
+can easily be extended to include contact 
+patterns and transmission rates specific to 
+age brackets (Fig. 3c).
+Extensions such as those highlighted 
+above are important when planning and ==============================
+patterns and transmission rates specific to 
+age brackets (Fig. 3c).
+Extensions such as those highlighted 
+above are important when planning and 
+prioritizing interventions. Next month we 
+will discuss how to decide which model 
+extensions are necessary in a given outbreak 
+setting and how to use decision theory to 
+identify the most critical knowledge gaps 
+during an ongoing epidemic.==============================
+extensions are necessary in a given outbreak 
+setting and how to use decision theory to 
+identify the most critical knowledge gaps 
+during an ongoing epidemic.
+An interactive tool to explore the  
+SEIRS model is at https://martinkrz.github.
+io/posepi2.
+❐
+Ottar N. Bjørnstad1,2, Katriona Shea1, 
+Martin Krzywinski3 ✉ and Naomi Altman4==============================
+io/posepi2.
+❐
+Ottar N. Bjørnstad1,2, Katriona Shea1, 
+Martin Krzywinski3 ✉ and Naomi Altman4
+1Department of Biology, The Pennsylvania State 
+University, State College, PA, USA. 2Department of 
+Entomology, The Pennsylvania State University, State 
+College, PA, USA. 3Canada’s Michael Smith Genome 
+Sciences Centre, Vancouver, British Columbia, 
+Canada. 4Department of Statistics, The Pennsylvania ==============================
+Entomology, The Pennsylvania State University, State 
+College, PA, USA. 3Canada’s Michael Smith Genome 
+Sciences Centre, Vancouver, British Columbia, 
+Canada. 4Department of Statistics, The Pennsylvania 
+State University, State College, PA, USA.  
+✉e-mail: martink@bcgsc.ca
+Published online: 4 June 2020 
+https://doi.org/10.1038/s41592-020-0856-2
+References
+	1.	 Bjørnstad, O. N., Shea, K., Krzywinski, M. & Altman, N. Nat. ==============================
+Published online: 4 June 2020 
+https://doi.org/10.1038/s41592-020-0856-2
+References
+	1.	 Bjørnstad, O. N., Shea, K., Krzywinski, M. & Altman, N. Nat. 
+Methods 17, 455–456 (2020).
+	2.	 Bjørnstad, O. N. Epidemics: Models and Data Using R (Springer, 
+2018).
+	3.	 Li, S.-L. et al. Proc. Natl Acad. Sci. USA 114, 5659–5664 (2017).
+Competing interests
+The authors declare no competing interests.==============================
+2018).
+	3.	 Li, S.-L. et al. Proc. Natl Acad. Sci. USA 114, 5659–5664 (2017).
+Competing interests
+The authors declare no competing interests.
+Fig. 2 | The phenomenon of epidemic waves. a, The trajectories of I for three different combinations of 
+latency (1/σ days) and loss of immunity (1/ω years) for R0 = 3, 1/γ = 14 days. TE is the inter-epidemic 
+interval (years), I(∞) is the value at the endemic equilibrium and the gray trajectory is the prediction 
+from the closed epidemic SIR model1. b, The I versus S phase planes of the 1/ω = 1 year epidemic waves 
+depicted in a, showing the effect of doubling 1/σ from 7 to 14 days. c, The effect of doubling 1/ω from 1 
+to 2 years. Points along the spirals indicate the one-year mark after the start of the first epidemic. Start ==============================
+interval (years), I(∞) is the value at the endemic equilibrium and the gray trajectory is the prediction 
+from the closed epidemic SIR model1. b, The I versus S phase planes of the 1/ω = 1 year epidemic waves 
+depicted in a, showing the effect of doubling 1/σ from 7 to 14 days. c, The effect of doubling 1/ω from 1 
+to 2 years. Points along the spirals indicate the one-year mark after the start of the first epidemic. Start 
+and progression of spirals are indicated by a black arrow (from bottom right and counterclockwise).
+Fig. 3 | SIR model extensions for variable infectiousness, multiple routes of transmission and 
+age-specific transmission. a, Split of the I group by level of symptoms (none/mild, moderate, severe), 
+with varying contact (k) and infectiousness (π) indicated qualitatively by + (low), ++ (medium) and 
++++ (high). Infected groups may recover at different rates (γk). b, Multiple routes of transmission 
+through individuals in the community (IC), hospital (IH) or awaiting funeral (F) with varying transmission ==============================
+age-specific transmission. a, Split of the I group by level of symptoms (none/mild, moderate, severe), 
+with varying contact (k) and infectiousness (π) indicated qualitatively by + (low), ++ (medium) and 
++++ (high). Infected groups may recover at different rates (γk). b, Multiple routes of transmission 
+through individuals in the community (IC), hospital (IH) or awaiting funeral (F) with varying transmission 
+rates (βk). c, Split of each group into age brackets (for example, I1, I2, …) to account for age-specific 
+contact patterns and transmission rates (φi). Birth occurs only into the S1 group, death affects each 
+group and aging is represented by flows between adjacent age brackets (for example, from I1 to I2)  
+at a rate a.
+Nature Methods | VOL 17 | June 2020 | 557–558 | www.nature.com/naturemethods==============================
+group and aging is represented by flows between adjacent age brackets (for example, from I1 to I2)  
+at a rate a.
+Nature Methods | VOL 17 | June 2020 | 557–558 | www.nature.com/naturemethods
